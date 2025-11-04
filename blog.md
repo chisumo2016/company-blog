@@ -44,7 +44,14 @@
     Customize the login page to our own  from breeze.
     Change the login page from breeze - Theme
         resources/views/auth/login.blade.php
+    Copy from old page and add into new page
 
+# REGISTER PAGE
+        Customize the REGISTER page to our own  from breeze.
+    Change the REGISTER page from breeze - Theme
+        resources/views/auth/register.blade.php
+    Copy from old page and add into new page
+    
 
 
 
