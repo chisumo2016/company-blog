@@ -16,3 +16,19 @@
     To setup forgot password , required 
             Mail services
                 e.g Mailtrap
+    Configure the env file
+    Test the reset password
+
+# BACKEND DASHBOARD SETUP
+    Gonna user Theme
+    To change  the default dashboard to customs  dashboard (Bootstrap 5)
+       assests
+    Links the all css {{ asset('backend')}}
+    Segment most part of our admin dashboard
+            
+        Sidebar  - Same
+        Header   - Same
+        Main  - Dynamic
+        Footer   - Same
+
+    php artisan optimize
