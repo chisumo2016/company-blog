@@ -49,6 +49,10 @@
                                             id="name"
                                             required=""
                                             placeholder="Enter your Name">
+
+                                        @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group mb-3">
@@ -60,6 +64,11 @@
                                             id="email"
                                             required=""
                                             placeholder="Enter your email">
+
+                                        @error('email')
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+
                                     </div>
 
                                     <div class="form-group mb-3">
@@ -71,6 +80,10 @@
                                             required=""
                                             id="password"
                                             placeholder="Enter your password">
+
+                                        @error('password')
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group mb-3">
@@ -82,6 +95,10 @@
                                             name="password_confirmation"
                                             id="password_confirmation"
                                             placeholder="Enter your password">
+
+                                        @error('password_confirmation')
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group d-flex mb-3">

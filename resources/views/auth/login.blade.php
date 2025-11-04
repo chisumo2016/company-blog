@@ -36,6 +36,13 @@
 
                             <div class="pt-0">
                                 <form method="POST"  action="{{ route('login') }}" class="my-4">
+
+                                    @if(session('error'))
+                                        <div class="alert alert-danger">
+                                            {{ session('error') }}
+                                        </div>
+                                    @endif
+
                                     @csrf
                                     <div class="form-group mb-3">
                                         <label for="emailaddress"
@@ -47,6 +54,10 @@
                                             name="email"
                                             required=""
                                             placeholder="Enter your email">
+
+                                        @error('email')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group mb-3">
@@ -58,6 +69,10 @@
                                             required=""
                                             id="password"
                                             placeholder="Enter your password">
+
+                                        @error('password')
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group d-flex mb-3">
