@@ -32,3 +32,8 @@
         Footer   - Same
 
     php artisan optimize
+
+# LOGOUT FUNCTIONALITY (ADMIN SIDE)
+        php artisan make:controller AdminController
+        Http/Controllers/Auth/AuthenticatedSessionController.php
+    
