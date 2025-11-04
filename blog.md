@@ -35,5 +35,41 @@
 
 # LOGOUT FUNCTIONALITY (ADMIN SIDE)
         php artisan make:controller AdminController
-        Http/Controllers/Auth/AuthenticatedSessionController.php
+             Http/Controllers/Auth/AuthenticatedSessionController.php
+        Copy the code and paste into new controller
+        Add the admin url in web route
+        Add the route name in header file
+
+# CUSTOMIZE  THE LOGIN PAGE
+    Customize the login page to our own  from breeze.
+    Change the login page from breeze - Theme
+        resources/views/auth/login.blade.php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     
