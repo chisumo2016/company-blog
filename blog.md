@@ -55,12 +55,40 @@
 
 # SHOWING ERROR MESSAGE
     Error validation 
+        @error('name')
+            <small class="text-danger">{{ $message }}</small>
+            @enderror
+
+# CLEAN THE DASHBOARD
+    dashboard to be clean
+        Header
+        Sidebar
+        Main
+        Footer
+
+#  TWO FACTOR AUTHENTIFICATION
+    In Login 
+        email and password - > the system will send  2FA email will be sent to mailtrap 
+    How to setup 
+        resources/views/auth/login.blade.php
+                 <form method="POST"  action="{{ route('login') }}" class="my-4">
+                 <form method="POST"  action="{{ route('admin.login') }}" class="my-4">
+
+    php artisan make:mail VerificationCodeMail
+        The all process to implement the 2FA with Laravel 12
+                    modified:   app/Http/Controllers/AdminController.php
+                    modified:   blog.md
+                    modified:   resources/views/admin/index.blade.php
+                    modified:   resources/views/admin/partials/_footer.blade.php
+                    modified:   resources/views/admin/partials/_header.blade.php
+                    modified:   resources/views/admin/partials/_sidebar.blade.php
+                    modified:   resources/views/auth/login.blade.php
+                    modified:   routes/web.php
 
 
-
-
-
-
+                     app/Mail/
+                    resources/views/auth/verify.blade.php
+                    resources/views/email/
 
 
 
