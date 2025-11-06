@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -17,7 +18,7 @@ class ProfileController extends Controller
 
         $profileData = User::find($id);
 
-        return view('admin.profile.admin_profile',compact('profileData'));
+        return view('admin.profile.admin_profile', compact('profileData'));
     }
 
     public function store(Request $request)
@@ -42,8 +43,8 @@ class ProfileController extends Controller
             $data->photo = $filename;
 
             /*remove the oldImage*/
-            if ($oldPhotoPath && $oldPhotoPath  != $filename) {
-                $this->deleteOldImage( $oldPhotoPath);
+            if ($oldPhotoPath && $oldPhotoPath != $filename) {
+                $this->deleteOldImage($oldPhotoPath);
             }
         }
 
@@ -52,7 +53,7 @@ class ProfileController extends Controller
 
         /*Notification Message*/
         $notification = array(
-            'message'   => 'Profile Updated Successfully',
+            'message' => 'Profile Updated Successfully',
             'alert-type' => 'success'
         );
 
@@ -60,12 +61,48 @@ class ProfileController extends Controller
 
     }
 
-    private function deleteOldImage(string $oldPhotoPath) : void
+    private function deleteOldImage(string $oldPhotoPath): void
     {
         $fullPath = public_path('upload/user_images/' . $oldPhotoPath);
 
         if (file_exists($fullPath)) {
             unlink($fullPath);
         }
+    }
+
+    public function update(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+
+        //checking the old password
+        if (!Hash::check($request->old_password , $user->password)) {
+                $notification = array(
+                    'message'   => 'Old password does not matches with the password you provided. Please try again.',
+                    'alert-type' => 'error'
+                );
+
+                return redirect()->back()->with($notification);
+        }
+
+        User::whereId($user->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        /**User logout*/
+        Auth::logout();
+
+        /*Notification Message*/
+        $notification = array(
+            'message' => 'Password Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('login')->with($notification);
+
     }
 }

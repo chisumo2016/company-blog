@@ -27,5 +27,11 @@
     - Add logic into controller
     - Load toastr message
     - Update the header information as well
+
+# UPDATE THE PASSWORD INFORMATION
+    - User can be able to change the password once logged in
+    - Add Toastr in login page
+
+
     
     

@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/profile',  [ProfileControllerAlias::class, 'profile'])->name('admin.profile');
 Route::post('/profile/store',  [ProfileControllerAlias::class, 'store'])->name('profile.store');
+Route::post('/admin/password/store',  [ProfileControllerAlias::class, 'update'])->name('admin.password.update');
 });
 
 require __DIR__.'/auth.php';
