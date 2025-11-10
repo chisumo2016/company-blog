@@ -2,13 +2,14 @@
 
 use App\Http\Controllers\Admin\ProfileController as ProfileControllerAlias;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\TestimonialController;
+use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*Load the home page**/
-Route::get('/', function () {
-    return view('home.index');
-});
+Route::get('/', [HomeController::class ,'index']);
+
 
 Route::get('/dashboard', function () {
     return view('admin.index');
@@ -40,5 +41,16 @@ Route::get('/profile',  [ProfileControllerAlias::class, 'profile'])->name('admin
 Route::post('/profile/store',  [ProfileControllerAlias::class, 'store'])->name('profile.store');
 Route::post('/admin/password/store',  [ProfileControllerAlias::class, 'update'])->name('admin.password.update');
 });
+
+Route::middleware('auth')->group(function () {
+            /* Group Controller with Resource*/
+            Route::resources([
+                'testimonials' => TestimonialController::class,
+            ]);
+
+
+  // Route::resource('/testimonials', TestimonialController::class);
+});
+
 
 require __DIR__.'/auth.php';
