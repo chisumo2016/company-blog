@@ -48,6 +48,11 @@
     php artisan make:request StoreTestimonialRequest
     php artisan make:request UpdateTestimonialRequest
 
+    Use the Home Controller to display the all reviews
+
+        NOTE NOTE
+            REMEMEBER TO REFACTOR THE TESTIMONIALCONTROLLER TO USE THE TRAIT 
+
 
 
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ProfileController as ProfileControllerAlias;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -45,9 +46,11 @@ Route::post('/admin/password/store',  [ProfileControllerAlias::class, 'update'])
 Route::middleware('auth')->group(function () {
             /* Group Controller with Resource*/
             Route::resources([
-                'testimonials' => TestimonialController::class,
+                'testimonials'  => TestimonialController::class,
             ]);
 
+            Route::get('get-slider' , [SliderController::class, 'getSlider'])->name('get.slider');
+            Route::post('update-slider' , [SliderController::class, 'updateSlider'])->name('update.slider');
 
   // Route::resource('/testimonials', TestimonialController::class);
 });
