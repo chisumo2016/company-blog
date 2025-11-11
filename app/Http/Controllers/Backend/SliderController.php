@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateTestimonialRequest;
 use App\Models\Slider;
 use App\Models\Testimonial;
+use App\Models\Title;
 use Illuminate\Http\Request;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
@@ -80,4 +81,63 @@ class SliderController extends Controller
         }
 
     }
+
+    public function editSlider(Request $request , $id)
+    {
+        $slider = Slider::findOrFail($id);
+
+        if ($request->has('title')) {
+            $slider->title = $request->title;
+        }
+
+        if ($request->has('description')) {
+            $slider->description = $request->description;
+        }
+
+        $slider->save();
+
+        return response()->json(['success' => true]);
+    }
+
+    public function editFeature(Request $request , $id)
+    {
+        $title = Title::findOrFail($id);
+
+        if ($request->has('features')) {
+            $title->features = $request->features;
+        }
+
+        $title->save();
+
+        return response()->json(['success' => true]);
+    }
+
+    public function editReview(Request $request , $id)
+    {
+        $title = Title::findOrFail($id);
+
+        if ($request->has('reviews')) {
+            $title->reviews = $request->reviews;
+        }
+
+        $title->save();
+
+        return response()->json(['success' => true]);
+    }
+
+
+    public function editAnswer(Request $request , $id)
+    {
+        $title = Title::findOrFail($id);
+
+        if ($request->has('answers')) {
+            $title->answers = $request->answers;
+        }
+
+        $title->save();
+
+        return response()->json(['success' => true]);
+    }
+
+
 }

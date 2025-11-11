@@ -51,6 +51,11 @@ Route::middleware('auth')->group(function () {
 
             Route::get('get-slider' , [SliderController::class, 'getSlider'])->name('get.slider');
             Route::post('update-slider' , [SliderController::class, 'updateSlider'])->name('update.slider');
+            Route::post('/edit-slider/{id}' , [SliderController::class, 'editSlider']);
+
+            Route::post('/edit-features/{id}' , [SliderController::class, 'editFeature']);
+            Route::post('/edit-reviews/{id}' , [SliderController::class, 'editReview']);
+            Route::post('/edit-answers/{id}' , [SliderController::class, 'editAnswer']);
 
   // Route::resource('/testimonials', TestimonialController::class);
 });
