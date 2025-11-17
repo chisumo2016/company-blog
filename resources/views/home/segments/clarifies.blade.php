@@ -9,7 +9,13 @@
             </div>
             <div class="col-lg-7 d-flex align-items-center">
                 <div class="lonyo-default-content pl-50" data-aos="fade-up" data-aos-duration="700">
-                    <h2>{{ $clarify->title }}</h2>
+                    <h2
+                        id="clarify-title"
+                        contenteditable="{{ auth()->check() ? 'true' : 'false'}}"
+                        data-id="{{ $title->id }}"
+                        >{{ $clarify->title }}
+                    </h2>
+
                     <p class="data">{{ $clarify->description }}</p>
                     <div class="lonyo-faq-wrap1 mt-50">
                         <div class="lonyo-faq-item open" data-aos="fade-up" data-aos-duration="500">
@@ -54,3 +60,54 @@
         </div>
     </div>
 </section>
+
+
+{{--CSRF TOKEN--}}
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+{{--Load script--}}
+<script>
+    document.addEventListener("DOMContentLoaded" ,function () {
+        const titleElement  = document.getElementById("clarify-title");
+
+
+        function saveChanges(element) {
+            let clarifyId = element.dataset.id;
+            let field    = element.id === "clarify-title" ? "clarifies" : "";
+            let newValue = element.innerText.trim();
+
+            /*Call an api*/
+            fetch(`/edit-clarify/${clarifyId}` ,{
+
+                method : "POST",
+                headers : {
+                    "X-CSRF-TOKEN" : document.querySelector('meta[ name = "csrf-token"]').getAttribute("content"),
+                    "content-type" : "application/json"
+                },
+                body : JSON.stringify({ [field]:newValue })
+
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log(`${field} updated successfully`)
+                    }
+                })
+                .catch(error =>console.error("Error:" , error))
+
+        }
+        /* Update the front into database after enter kye**/
+        document.addEventListener("keydown" , function (e) {
+            if(e.key === "Enter"){
+                e.preventDefault();
+                saveChanges(e.target);
+            }
+        });
+
+        /*Auto save on losing focus**/
+        titleElement.addEventListener("blur" , function () {
+            saveChanges(titleElement)
+        })
+
+    })
+</script>
+

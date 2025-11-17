@@ -93,35 +93,20 @@ class ClarifyController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function editClarify(Request $request , $id)
     {
-        //
-    }
+        $clarify = Clarify::findOrFail($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        if ($request->has('title')) {
+            $clarify->title = $request->title;
+        }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        if ($request->has('description')) {
+            $clarify->description = $request->description;
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $clarify->save();
+
+        return response()->json(['success' => true]);
     }
 }

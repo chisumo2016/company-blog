@@ -5,3 +5,7 @@
         php artisan make:request StoreClarifyRequest
 
 
+    - Display in the front end
+
+# Get Finance 
+        
