@@ -66,7 +66,9 @@ Route::middleware('auth')->group(function () {
             Route::post('update-clarifies' , [ClarifyController::class, 'updateClarify'])->name('update.clarifies');
             Route::post('/edit-clarify/{id}' , [ClarifyController::class, 'editClarify']);
 
-           // Route::get('/get-finances' , [FinanceController::class, 'getFinance'])->name('get.finances');
+           Route::get('/get-finances' , [FinanceController::class, 'getFinance'])->name('get.finances');
+           Route::post('/update-finances' , [FinanceController::class, 'updateFinance'])->name('update.finances');
+           Route::post('/edit-finance/{id}' , [ClarifyController::class, 'editFinance']);
 
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\client;
 use App\Http\Controllers\Controller;
 use App\Models\Clarify;
 use App\Models\Feature;
+use App\Models\Finance;
 use App\Models\Slider;
 use App\Models\Testimonial;
 use App\Models\Title;
@@ -20,6 +21,7 @@ class HomeController extends Controller
         $slider     = Slider::find(1);
         $title      = Title::find(1);
         $clarify  = Clarify::find(1);
+        $finance   = Finance::find(1);
 
 
 
@@ -28,7 +30,8 @@ class HomeController extends Controller
 'slider' ,
             'title' ,
             'features',
-            'clarify'
+            'clarify',
+            'finance',
         ));
     }
 }

@@ -105,6 +105,21 @@
                     </div>
                 </li>
 
+                <li>
+                    <a href="#sidebarError" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> Finances </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarError">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('get.finances') }}" class="tp-link">Get Finances</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <li class="menu-title mt-2">General</li>
 
                 <li>
