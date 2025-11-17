@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ProfileController as ProfileControllerAlias;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\FeatureController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\client\HomeController;
@@ -47,6 +48,7 @@ Route::middleware('auth')->group(function () {
             /* Group Controller with Resource*/
             Route::resources([
                 'testimonials'  => TestimonialController::class,
+                'features'  => FeatureController::class,
             ]);
 
             Route::get('get-slider' , [SliderController::class, 'getSlider'])->name('get.slider');

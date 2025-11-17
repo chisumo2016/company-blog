@@ -70,6 +70,25 @@
                     </div>
                 </li>
 
+                <li>
+                    <a href="#sidebarError" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> Features Setup </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarError">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('features.index') }}" class="tp-link">View Features</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('features.create') }}" class="tp-link">Create Features</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
                 <li class="menu-title mt-2">General</li>
 
                 <li>

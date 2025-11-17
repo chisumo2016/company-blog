@@ -14,14 +14,16 @@
 {{--            <h2>Features that make spending smarter</h2>--}}
         </div>
         <div class="row">
+
+            @foreach($features as $feature) @endforeach
             <div class="col-xl-4 col-lg-6 col-md-6">
                 <div class="lonyo-service-wrap light-bg" data-aos="fade-up" data-aos-duration="500">
                     <div class="lonyo-service-title">
-                        <h4>Expense Tracking</h4>
-                        <img src="{{ asset('client/assets/images/v1/feature1.svg') }}" alt="">
+                        <h4>{{ $feature->title }}</h4>
+                        <img src="{{ asset('client/assets/images/v1/' .$feature->title.'.svg') }}" alt="">
                     </div>
                     <div class="lonyo-service-data">
-                        <p>Allows users to record and categorize daily transactions such as income, expenses, bills, and savings.</p>
+                        <p>{{ $feature->description }}</p>
                     </div>
                 </div>
             </div>
