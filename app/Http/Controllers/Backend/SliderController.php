@@ -43,6 +43,7 @@ class SliderController extends Controller
 
             /*Remove the existing image*/
 
+
             if (file_exists(public_path($slider->photo))) {
                 unlink(public_path($slider->photo));
             }

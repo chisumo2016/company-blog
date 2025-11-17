@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ProfileController as ProfileControllerAlias;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\ClarifyController;
 use App\Http\Controllers\Backend\FeatureController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\TestimonialController;
@@ -58,6 +59,14 @@ Route::middleware('auth')->group(function () {
             Route::post('/edit-features/{id}' , [SliderController::class, 'editFeature']);
             Route::post('/edit-reviews/{id}' , [SliderController::class, 'editReview']);
             Route::post('/edit-answers/{id}' , [SliderController::class, 'editAnswer']);
+
+
+            Route::get('/get-clarifies' , [ClarifyController::class, 'getClarify'])->name('get.clarifies');
+            Route::post('update-clarifies' , [ClarifyController::class, 'updateClarify'])->name('update.clarifies');
+            Route::post('/edit-clarify/{id}' , [ClarifyController::class, 'editClarify']);
+
+
+
 
   // Route::resource('/testimonials', TestimonialController::class);
 });
