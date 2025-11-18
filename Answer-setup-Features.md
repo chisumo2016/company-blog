@@ -6,3 +6,4 @@
         php artisan migrate:rollback --step=1 
 
     Make web route 
+    Display in UI

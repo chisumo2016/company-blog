@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ProfileController as ProfileControllerAlias;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AnswerController;
+use App\Http\Controllers\Backend\AppController;
 use App\Http\Controllers\Backend\ClarifyController;
 use App\Http\Controllers\Backend\ConnectController;
 use App\Http\Controllers\Backend\FeatureController;
@@ -78,6 +79,9 @@ Route::middleware('auth')->group(function () {
             Route::get('/get/usability' ,     [UsabilityController::class, 'getUsability'])->name('get.usability');
             Route::post('/update-usability' , [UsabilityController::class, 'updateUsability'])->name('update.usability');
             Route::post('/update-connect/{id}' , [ConnectController::class, 'updateConnect']);
+
+           Route::post('/update-apps/{id}' ,         [AppController::class, 'updateApp']);
+           Route::post('/update-app-image/{id}' ,  [AppController::class, 'updateAppImage']);
 
 
   // Route::resource('/testimonials', TestimonialController::class);

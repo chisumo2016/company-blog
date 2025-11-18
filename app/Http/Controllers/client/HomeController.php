@@ -4,6 +4,7 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Answer;
+use App\Models\App;
 use App\Models\Clarify;
 use App\Models\Connect;
 use App\Models\Feature;
@@ -28,6 +29,7 @@ class HomeController extends Controller
         $clarify    = Clarify::find(1);
         $finance    = Finance::find(1);
         $usability   = Usability::find(1);
+        $app       = App::find(1);
 
 
 
@@ -41,6 +43,7 @@ class HomeController extends Controller
             'usability',
             'connects',
             'answers',
+            'app'
         ));
     }
 }

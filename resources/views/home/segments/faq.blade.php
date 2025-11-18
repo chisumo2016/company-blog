@@ -24,7 +24,7 @@
                         <div class="lonyo-active-icon">
                             <img class="plasicon" src="{{ asset('client/assets/images/v1/mynus.svg') }}" alt="">
                             <img class="mynusicon" src="{{ asset('client/assets/images/v1/plas.svg') }}" alt="">
-                         
+
                         </div>
                     </div>
                     <div class="lonyo-faq-body body2">
