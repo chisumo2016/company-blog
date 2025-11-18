@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Answer;
 use App\Models\Clarify;
 use App\Models\Connect;
 use App\Models\Feature;
@@ -20,6 +21,7 @@ class HomeController extends Controller
         $testimonials   = Testimonial::latest()->limit(6)->get();
         $features       = Feature::latest()->get();
         $connects      =  Connect::whereIn('id',[1,2,3])->get()->keyBy('id');
+        $answers       = Answer::latest()->limit(5)->get();
 
         $slider     = Slider::find(1);
         $title      = Title::find(1);
@@ -38,6 +40,7 @@ class HomeController extends Controller
             'finance',
             'usability',
             'connects',
+            'answers',
         ));
     }
 }

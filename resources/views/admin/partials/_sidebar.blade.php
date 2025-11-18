@@ -141,6 +141,7 @@
                         <span> Connect  Setup</span>
                         <span class="menu-arrow"></span>
                     </a>
+
                     <div class="collapse" id="connect">
                         <ul class="nav-second-level">
                             <li>
@@ -148,6 +149,25 @@
                             </li>
                             <li>
                                 <a href="{{ route('connects.create') }}" class="tp-link">Create Connect</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#answers" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> Answer  Setup</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+
+                    <div class="collapse" id="answers">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('answers.index') }}" class="tp-link">View Answers</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('answers.create') }}" class="tp-link">Create Answer</a>
                             </li>
 
                         </ul>
