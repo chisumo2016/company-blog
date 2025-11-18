@@ -8,6 +8,20 @@
         -> use it daily
         -> face the problem ->solve the problem
         -> I have covered more than basics in this .
+        -> Takes Snapshot of changes
+        -> View History
+        -> Rollback Chhanges
+        -> Allows for Collaboration
+
+    Git is disturibution version control system that tacks chnages in source code during software development .
+    Allows multiple developers to work on a projects simultaneously without overwriting each other's changes .
+    Git provides tools for BRANCHING , MERGING and TRACKING progress across various of the codebase .
+
+# WHY GIT
+    ->The most popular source control software
+    ->Open source
+    ->Lots of ducumentation and support
+    ->Lots of integration with other applications (SourceTree, Heroku , Github )
 
 # REPO  - REPOSITORY
     ->Git on system  vs tracking (repo)

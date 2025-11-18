@@ -9,6 +9,7 @@ use App\Models\Finance;
 use App\Models\Slider;
 use App\Models\Testimonial;
 use App\Models\Title;
+use App\Models\Usability;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,6 +23,7 @@ class HomeController extends Controller
         $title      = Title::find(1);
         $clarify  = Clarify::find(1);
         $finance   = Finance::find(1);
+        $usability   = Usability::find(1);
 
 
 
@@ -32,6 +34,7 @@ class HomeController extends Controller
             'features',
             'clarify',
             'finance',
+            'usability',
         ));
     }
 }

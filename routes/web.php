@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\FeatureController;
 use App\Http\Controllers\Backend\FinanceController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\TestimonialController;
+use App\Http\Controllers\Backend\UsabilityController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -68,7 +69,10 @@ Route::middleware('auth')->group(function () {
 
            Route::get('/get-finances' , [FinanceController::class, 'getFinance'])->name('get.finances');
            Route::post('/update-finances' , [FinanceController::class, 'updateFinance'])->name('update.finances');
-           Route::post('/edit-finance/{id}' , [ClarifyController::class, 'editFinance']);
+          // Route::post('/edit-finance/{id}' , [ClarifyController::class, 'editFinance']);
+
+            Route::get('/get/usability' ,     [UsabilityController::class, 'getUsability'])->name('get.usability');
+            Route::post('/update-usability' , [UsabilityController::class, 'updateUsability'])->name('update.usability');
 
 
 
