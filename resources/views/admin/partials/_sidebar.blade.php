@@ -37,12 +37,12 @@
                 <li class="menu-title">Pages</li>
 
                 <li>
-                    <a href="#sidebarAuth" data-bs-toggle="collapse">
+                    <a href="#testimonials" data-bs-toggle="collapse">
                         <i data-feather="users"></i>
                         <span> Testimonials / Reviews </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarAuth">
+                    <div class="collapse" id="testimonials">
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{ route('testimonials.index') }}" class="tp-link">View Reviews</a>
@@ -56,12 +56,12 @@
                 </li>
 
                 <li>
-                    <a href="#sidebarError" data-bs-toggle="collapse">
+                    <a href="#slider" data-bs-toggle="collapse">
                         <i data-feather="alert-octagon"></i>
                         <span> Slider </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarError">
+                    <div class="collapse" id="slider">
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{ route('get.slider') }}" class="tp-link">Get Slider</a>
@@ -71,12 +71,12 @@
                 </li>
 
                 <li>
-                    <a href="#sidebarError" data-bs-toggle="collapse">
+                    <a href="#features" data-bs-toggle="collapse">
                         <i data-feather="alert-octagon"></i>
                         <span> Features Setup </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarError">
+                    <div class="collapse" id="features">
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{ route('features.index') }}" class="tp-link">View Features</a>
@@ -91,12 +91,12 @@
 
 
                 <li>
-                    <a href="#sidebarError" data-bs-toggle="collapse">
+                    <a href="#clarify" data-bs-toggle="collapse">
                         <i data-feather="alert-octagon"></i>
                         <span> Clarifies </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarError">
+                    <div class="collapse" id="clarify">
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{ route('get.clarifies') }}" class="tp-link">Get Clarifies</a>
@@ -131,6 +131,25 @@
                             <li>
                                 <a href="{{ route('get.usability') }}" class="tp-link">Get Usability</a>
                             </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#connect" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> Connect  Setup</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="connect">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('connects.index') }}" class="tp-link">View Connect</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('connects.create') }}" class="tp-link">Create Connect</a>
+                            </li>
+
                         </ul>
                     </div>
                 </li>

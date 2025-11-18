@@ -80,6 +80,7 @@ class FeatureController extends Controller
     public function destroy(Feature $feature)
     {
         $feature->delete();
+
         $notification = [
             'alert-type' => 'success',
             'message' => 'Feature Deleted Successfully'

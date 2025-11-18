@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ProfileController as ProfileControllerAlias;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\ClarifyController;
+use App\Http\Controllers\Backend\ConnectController;
 use App\Http\Controllers\Backend\FeatureController;
 use App\Http\Controllers\Backend\FinanceController;
 use App\Http\Controllers\Backend\SliderController;
@@ -52,6 +53,7 @@ Route::middleware('auth')->group(function () {
             Route::resources([
                 'testimonials'  => TestimonialController::class,
                 'features'  => FeatureController::class,
+                'connects' => ConnectController::class,
             ]);
 
             Route::get('get-slider' , [SliderController::class, 'getSlider'])->name('get.slider');
@@ -73,8 +75,7 @@ Route::middleware('auth')->group(function () {
 
             Route::get('/get/usability' ,     [UsabilityController::class, 'getUsability'])->name('get.usability');
             Route::post('/update-usability' , [UsabilityController::class, 'updateUsability'])->name('update.usability');
-
-
+            Route::post('/update-connect/{id}' , [ConnectController::class, 'updateConnect']);
 
 
   // Route::resource('/testimonials', TestimonialController::class);
