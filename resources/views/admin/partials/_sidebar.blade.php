@@ -177,6 +177,26 @@
                 <li class="menu-title mt-2">General</li>
 
                 <li>
+                    <a href="#teams" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> Teams  Setup</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+
+                    <div class="collapse" id="teams">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('teams.index') }}" class="tp-link">View Teams</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('teams.create') }}" class="tp-link">Create Team</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
                     <a href="#sidebarBaseui" data-bs-toggle="collapse">
                         <i data-feather="package"></i>
                         <span> Components </span>

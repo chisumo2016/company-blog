@@ -24,7 +24,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index-02.html">
+                            <a href="{{ route('team.index')  }}">
                                 Team
                             </a>
                         </li>

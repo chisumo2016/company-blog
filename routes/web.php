@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\ConnectController;
 use App\Http\Controllers\Backend\FeatureController;
 use App\Http\Controllers\Backend\FinanceController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\UsabilityController;
 use App\Http\Controllers\client\HomeController;
@@ -56,7 +57,9 @@ Route::middleware('auth')->group(function () {
                 'testimonials'  => TestimonialController::class,
                 'features'      => FeatureController::class,
                 'connects'      => ConnectController::class,
-                'answers'        => AnswerController::class,
+                'answers'       => AnswerController::class,
+                'teams'         => TeamController::class
+
             ]);
 
             Route::get('get-slider' , [SliderController::class, 'getSlider'])->name('get.slider');
@@ -86,6 +89,10 @@ Route::middleware('auth')->group(function () {
 
   // Route::resource('/testimonials', TestimonialController::class);
 });
+
+/**Our Team*/
+
+    Route::get('team', [\App\Http\Controllers\Client\TeamController::class, 'index'])->name('team.index');
 
 
 require __DIR__.'/auth.php';
