@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ProfileController as ProfileControllerAlias;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AnswerController;
 use App\Http\Controllers\Backend\AppController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ClarifyController;
 use App\Http\Controllers\Backend\ConnectController;
 use App\Http\Controllers\Backend\CoreController;
@@ -61,7 +62,8 @@ Route::middleware('auth')->group(function () {
                 'connects'      => ConnectController::class,
                 'answers'       => AnswerController::class,
                 'teams'         => TeamController::class,
-                'cores'         => CoreController::class
+                'cores'         => CoreController::class,
+                'categories'    => CategoryController::class,
 
             ]);
 

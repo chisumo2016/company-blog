@@ -235,19 +235,26 @@
                 <li>
                     <a href="#sidebarBaseui" data-bs-toggle="collapse">
                         <i data-feather="package"></i>
-                        <span> Components </span>
+                        <span> Blog Post</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarBaseui">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="ui-accordions.html" class="tp-link">Accordions</a>
-                            </li>
-                            <li>
-                                <a href="ui-alerts.html" class="tp-link">Alerts</a>
-                            </li>
-                            <li>
-                                <a href="ui-badges.html" class="tp-link">Badges</a>
+                                <a href="#blog" data-bs-toggle="collapse">
+                                    <i data-feather="alert-octagon"></i>
+                                    <span> Category Setup</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+
+                                <div class="collapse" id="blog">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('categories.index') }}" class="tp-link">View Categories</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
                     </div>
