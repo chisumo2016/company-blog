@@ -197,6 +197,42 @@
                 </li>
 
                 <li>
+                    <a href="#about" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> About Page  Setup</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+
+                    <div class="collapse" id="about">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('get.aboutus') }}" class="tp-link">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#values" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> Core Values  Setup</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+
+                    <div class="collapse" id="values">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('cores.index') }}" class="tp-link">View Core Values</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('cores.create') }}" class="tp-link">Create Core Value</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
                     <a href="#sidebarBaseui" data-bs-toggle="collapse">
                         <i data-feather="package"></i>
                         <span> Components </span>

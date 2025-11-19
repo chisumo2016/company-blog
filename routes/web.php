@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\AnswerController;
 use App\Http\Controllers\Backend\AppController;
 use App\Http\Controllers\Backend\ClarifyController;
 use App\Http\Controllers\Backend\ConnectController;
+use App\Http\Controllers\Backend\CoreController;
 use App\Http\Controllers\Backend\FeatureController;
 use App\Http\Controllers\Backend\FinanceController;
 use App\Http\Controllers\Backend\SliderController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\UsabilityController;
 use App\Http\Controllers\client\HomeController;
+use App\Http\Controllers\client\pages\AboutController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,7 +60,8 @@ Route::middleware('auth')->group(function () {
                 'features'      => FeatureController::class,
                 'connects'      => ConnectController::class,
                 'answers'       => AnswerController::class,
-                'teams'         => TeamController::class
+                'teams'         => TeamController::class,
+                'cores'         => CoreController::class
 
             ]);
 
@@ -87,12 +90,16 @@ Route::middleware('auth')->group(function () {
            Route::post('/update-app-image/{id}' ,  [AppController::class, 'updateAppImage']);
 
 
-  // Route::resource('/testimonials', TestimonialController::class);
+
+        Route::get('/get/aboutus' ,     [\App\Http\Controllers\Backend\AboutController::class, 'aboutUs'])->name('get.aboutus');
+        Route::post('/update/aboutus' ,     [\App\Http\Controllers\Backend\AboutController::class, 'updateAbout'])->name('update.about');
+
 });
 
 /**Our Team*/
 
-    Route::get('team', [\App\Http\Controllers\Client\TeamController::class, 'index'])->name('team.index');
+    Route::get('team', [\App\Http\Controllers\client\TeamController::class, 'index'])->name('team.index');
+    Route::get('about-us', [AboutController::class, 'index'])->name('about.us');
 
 
 require __DIR__.'/auth.php';

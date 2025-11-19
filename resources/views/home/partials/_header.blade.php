@@ -16,10 +16,10 @@
                                 <a href="{{ url('/') }}">Home</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="#">About Us</a>
+                                <a href="{{ route('about.us') }}">About Us</a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <a href="index.html">
+                                        <a href="{{ route('about.us') }}">
                                             Company Profile
                                         </a>
                                     </li>

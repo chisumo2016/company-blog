@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Client;
+namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Models\App;
 use App\Models\Team;
-use Illuminate\Http\Request;
+use App\Models\Title;
 
 class TeamController extends Controller
 {
