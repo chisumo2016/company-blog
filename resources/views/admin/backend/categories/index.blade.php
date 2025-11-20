@@ -51,7 +51,7 @@
                                         <form action="{{ route('categories.destroy',$category) }}"
                                               method="POST"
                                               class="delete-form"
-                                              onsubmit="return confirm('Are you sure you want to delete this testimonial?');"
+                                              onsubmit="return confirm('Are you sure you want to delete this categories?');"
                                               style="margin: 0;">
                                             @csrf
                                             @method('DELETE')

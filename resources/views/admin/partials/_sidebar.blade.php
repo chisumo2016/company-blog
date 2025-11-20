@@ -256,6 +256,22 @@
                                     </ul>
                                 </div>
                             </li>
+
+                            <li>
+                                <a href="#posts" data-bs-toggle="collapse">
+                                    <i data-feather="alert-octagon"></i>
+                                    <span> Post Setup</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+
+                                <div class="collapse" id="posts">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('posts.index') }}" class="tp-link">View Posts</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </li>

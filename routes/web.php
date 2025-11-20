@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ConnectController;
 use App\Http\Controllers\Backend\CoreController;
 use App\Http\Controllers\Backend\FeatureController;
 use App\Http\Controllers\Backend\FinanceController;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\TestimonialController;
@@ -64,6 +65,7 @@ Route::middleware('auth')->group(function () {
                 'teams'         => TeamController::class,
                 'cores'         => CoreController::class,
                 'categories'    => CategoryController::class,
+                'posts'          => PostController::class,
 
             ]);
 

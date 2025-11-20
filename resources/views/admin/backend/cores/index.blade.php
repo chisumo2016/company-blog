@@ -44,7 +44,7 @@
                                             <form action="{{ route('cores.destroy', $core->id) }}"
                                                   method="POST"
                                                   class="delete-form"
-                                                  onsubmit="return confirm('Are you sure you want to delete this testimonial?');"
+                                                  onsubmit="return confirm('Are you sure you want to delete this post?');"
                                                   style="margin: 0;">
                                                 @csrf
                                                 @method('DELETE')
