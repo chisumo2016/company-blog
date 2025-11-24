@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\UsabilityController;
+use App\Http\Controllers\Client\ContactController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\pages\AboutController;
 use App\Http\Controllers\ProfileController;
@@ -98,6 +99,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/get/aboutus' ,     [\App\Http\Controllers\Backend\AboutController::class, 'aboutUs'])->name('get.aboutus');
         Route::post('/update/aboutus' ,     [\App\Http\Controllers\Backend\AboutController::class, 'updateAbout'])->name('update.about');
 
+         Route::get('/contact/message', [\App\Http\Controllers\Backend\ContactController::class, 'contact'])->name('contact.index');
+         Route::delete('/contact/message/{id}', [\App\Http\Controllers\Backend\ContactController::class, 'destroy'])->name('contact.delete');
+
 });
 
 /**Our Team*/
@@ -108,7 +112,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/blog', [\App\Http\Controllers\Client\PostController::class, 'index'])->name('blog.post');
     Route::get('/category', [\App\Http\Controllers\Client\CategoryController::class, 'index'])->name('categories.post');
     Route::get('blog/single-blog/{slug}', [\App\Http\Controllers\Client\PostController::class, 'show'])->name('blog.show');
-Route::get('/blog/category/{id}', [\App\Http\Controllers\Client\PostController::class,'blogCategory']) ->name('blog.category');
+    Route::get('/blog/category/{id}', [\App\Http\Controllers\Client\PostController::class,'blogCategory']) ->name('blog.category');
+
+    Route::get('contact', [ContactController::class, 'index'])->name('contact.us');
+    Route::post('/contact/message', [ContactController::class, 'store'])->name('contact.store');
+
 
 
 require __DIR__.'/auth.php';

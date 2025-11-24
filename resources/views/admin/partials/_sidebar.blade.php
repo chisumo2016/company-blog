@@ -277,22 +277,22 @@
                 </li>
 
                 <li>
-                    <a href="widgets.html" class="tp-link">
+                    <a href="{{ route('contact.index') }}" class="tp-link">
                         <i data-feather="aperture"></i>
-                        <span> Widgets </span>
+                        <span>Contact Message </span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#sidebarAdvancedUI" data-bs-toggle="collapse">
                         <i data-feather="cpu"></i>
-                        <span> Extended UI </span>
+                        <span> Contact</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarAdvancedUI">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="extended-carousel.html" class="tp-link">Carousel</a>
+                                <a href="extended-carousel.html" class="tp-link">Contact Message</a>
                             </li>
                             <li>
                                 <a href="extended-notifications.html" class="tp-link">Notifications</a>

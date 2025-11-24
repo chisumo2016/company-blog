@@ -13,6 +13,7 @@ class PostController extends Controller
     public function index()
     {
         $categories = Category::latest()->withCount('posts')->get();
+
         $app       = App::find(1);
 
         $posts = Post::with('author')

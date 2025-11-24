@@ -11,7 +11,7 @@ class TeamController extends Controller
 {
     public function  index()
     {
-        $teams = Team::latest()->get();
+        $teams =     Team::latest()->get();
 
         $app       = App::find(1);
 
