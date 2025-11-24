@@ -39,7 +39,7 @@
                             </li>
 
                             <li>
-                                <a href="index.html">Blog</a>
+                                <a href="{{ route('blog.post') }}">Blog</a>
                             </li>
                             <li>
                                 <a href="contact-us.html">Contact</a>

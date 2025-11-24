@@ -8,4 +8,7 @@
     Create the relationship Post and Category
          Category is related to Post
             Post belongs to Category
+
+#  SHOW BLOG POST IN FRONT END 
+        
         

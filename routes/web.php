@@ -105,5 +105,10 @@ Route::middleware('auth')->group(function () {
     Route::get('team', [\App\Http\Controllers\client\TeamController::class, 'index'])->name('team.index');
     Route::get('about-us', [AboutController::class, 'index'])->name('about.us');
 
+    Route::get('/blog', [\App\Http\Controllers\Client\PostController::class, 'index'])->name('blog.post');
+    Route::get('/category', [\App\Http\Controllers\Client\CategoryController::class, 'index'])->name('categories.post');
+    Route::get('blog/single-blog/{slug}', [\App\Http\Controllers\Client\PostController::class, 'show'])->name('blog.show');
+Route::get('/blog/category/{id}', [\App\Http\Controllers\Client\PostController::class,'blogCategory']) ->name('blog.category');
+
 
 require __DIR__.'/auth.php';

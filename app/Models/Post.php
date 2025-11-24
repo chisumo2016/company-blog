@@ -103,7 +103,7 @@ class Post extends Model
      */
     public function getSummaryAttribute()
     {
-        return $this->excerpt ?: Str::limit(strip_tags($this->description), 180);
+        return Str::limit(strip_tags($this->description), 180);
     }
 
 
