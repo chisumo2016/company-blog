@@ -13,6 +13,10 @@ class DemoDataSeeder extends Seeder
     public function run(): void
     {
        // \App\Models\Category::factory(10)->create();
-        \App\Models\Post::factory(25)->create();
+        //\App\Models\Post::factory(25)->create();
+        $this->call([
+            RoleSeeder::class,
+            AdminSeeder::class,
+        ]);
     }
 }

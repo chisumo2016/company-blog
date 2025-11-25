@@ -19,6 +19,7 @@ use App\Http\Controllers\Client\ContactController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\pages\AboutController;
 use App\Http\Controllers\ProfileController;
+use Couchbase\Role;
 use Illuminate\Support\Facades\Route;
 
 /*Load the home page**/
@@ -117,6 +118,12 @@ Route::middleware('auth')->group(function () {
     Route::get('contact', [ContactController::class, 'index'])->name('contact.us');
     Route::post('/contact/message', [ContactController::class, 'store'])->name('contact.store');
 
+        Route::get('assign-permission-to-user', function(){
+            // check the user permission through role
+            $user = User::find(1);
 
+            $permissions = $user->getAllPermissions();
+
+        });
 
 require __DIR__.'/auth.php';
