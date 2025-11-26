@@ -207,5 +207,11 @@
     Display all users
         :active=
 
+    Add new controller
+
+# ASSIGN ROLES AND PERMISSION TO USERS
+    add roles and permissions in one page
+
+
     
 

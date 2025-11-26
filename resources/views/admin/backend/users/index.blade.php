@@ -38,8 +38,8 @@
 
 
                                     <td class="d-flex align-items-center gap-2">
-                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-success btn-sm">Roles</a>
-                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm">Permissions</a>
+                                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-success btn-sm">Roles</a>
+
 
                                         <form action="{{ route('users.destroy', $user->id) }}"
                                               method="POST"

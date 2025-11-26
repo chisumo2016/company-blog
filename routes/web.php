@@ -89,7 +89,14 @@ Route::middleware('auth')->group(function () {
             Route::post('/permissions/{permission}/attach-roles',           [PermissionController::class, 'assignRole'])->name('permission.attach');
             Route::delete('/permissions/{permission}/roles/{role}',          [PermissionController::class, 'removeRole'])->name('permissions.roles.remove');
 
-            Route::get('get-slider' ,     [SliderController::class, 'getSlider'])->name('get.slider');
+            Route::post('users/{user}/roles',                  [UserController::class, 'assignRole'])->name('users.roles');
+            Route::delete('users/{user}/roles/{role}',         [UserController::class, 'removeRole'])->name('users.roles.remove');
+
+            Route::post('users/{user}/permissions',           [UserController::class, 'givePermission'])->name('users.permissions');
+            Route::delete('users/{user}/permission/{permission}',  [UserController::class, 'removePermission'])->name('users.permission.revoke');
+
+
+    Route::get('get-slider' ,     [SliderController::class, 'getSlider'])->name('get.slider');
             Route::post('update-slider' , [SliderController::class, 'updateSlider'])->name('update.slider');
             Route::post('/edit-slider/{id}' , [SliderController::class, 'editSlider']);
 
