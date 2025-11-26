@@ -65,9 +65,63 @@
                                                             </div>
                                                             <button type="submit" class="btn btn-primary">Update Changes</button>
                                                         </div><!--end card-body-->
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="form-group mb-3 row">
+                                                <div class="card-header">
+                                                    <div class="row align-items-center">
+                                                        <div class="col">
+                                                            <h4 class="card-title mb-0">Assign Permission To Role</h4>
+                                                        </div><!--end col-->
+                                                        <div class="mt-2 d-flex gap-2">
+                                                            @if($role->permissions)
+
+                                                                @foreach($role->permissions as $role_permission)
+                                                                    <form action="{{ route('roles.permission.revoke', [$role->id , $role_permission->id]) }}"
+                                                                          method="POST"
+                                                                          class="delete-form"
+                                                                          onsubmit="return confirm('Are you sure you want to delete this roles ?');"
+                                                                          style="margin: 0;">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit"  class="btn btn-danger btn-sm show-confirm">
+                                                                            {{ $role_permission->name }}
+                                                                        </button>
+                                                                    </form>
+                                                                @endforeach
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <form id="myForm" method="POST" action="{{ route('roles.attach', $role) }}" >
+                                                    @csrf
+                                                    <div class="card-body">
+
+                                                        <div class="form-group mb-3 row">
+
+                                                            <div class="form-group mb-3 row col-4">
+                                                                <label for="permission" class="form-label">Permission</label>
+                                                                <select class="form-select" name="permission" id="permission">
+
+                                                                    @foreach($permissions as $permission)
+                                                                        <option value="{{ $permission->name }}">{{ $permission->name }}</option>
+                                                                    @endforeach
+
+                                                                </select>
+                                                                @error('permission')
+                                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                                @enderror
+                                                            </div>
+                                                            <button type="submit" class="btn btn-primary">Assign</button>
+                                                        </div><!--end card-body-->
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>
+
 
                                     </div>
                                 </div>

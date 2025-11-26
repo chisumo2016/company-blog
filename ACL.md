@@ -185,3 +185,10 @@
         eg $roles =  Role::whereNotIn('name', ['admin'])->get();
 
 # DELETE ROLES AND PERMISSIONS 
+
+# ASSIGN PERMISSION TO ROLE 
+        https://spatie.be/docs/laravel-permission/v6/basic-usage/role-permissions
+        it happen in edit  role form , when a user click edit , the populated form will be displayed
+            user will select permission and assign to it
+        givePermissions
+            $role->givePermissionTo('edit articles');
