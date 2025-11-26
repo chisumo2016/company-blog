@@ -151,6 +151,7 @@
 
 
 # REAL PRACTICAL - SPATIE PACKAGE
+    https://www.alpinetoolbox.com/
     - Create Admin User 
     Seed for role 
     Seed for user 
@@ -159,3 +160,8 @@
         php artisan make:seeder AdminSeeder
 
     php artisan db:seed --class=DemoDataSeeder
+
+# CREATE THE ADMIN UI 
+        https://github.com/tonyxhepa/laravel-permission
+        php artisan make:controller Backend/RoleController -r
+        php artisan make:controller Backend/PermissionController -r

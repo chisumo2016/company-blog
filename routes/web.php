@@ -10,7 +10,9 @@ use App\Http\Controllers\Backend\ConnectController;
 use App\Http\Controllers\Backend\CoreController;
 use App\Http\Controllers\Backend\FeatureController;
 use App\Http\Controllers\Backend\FinanceController;
+use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\PostController;
+use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\TestimonialController;
@@ -19,7 +21,7 @@ use App\Http\Controllers\Client\ContactController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\pages\AboutController;
 use App\Http\Controllers\ProfileController;
-use Couchbase\Role;
+
 use Illuminate\Support\Facades\Route;
 
 /*Load the home page**/
@@ -29,6 +31,10 @@ Route::get('/', [HomeController::class ,'index']);
 Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+//Route::get('/admin', function () {
+//    return view('admin.index');
+//})->middleware(['auth', 'verified','role:admin'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -68,6 +74,9 @@ Route::middleware('auth')->group(function () {
                 'cores'         => CoreController::class,
                 'categories'    => CategoryController::class,
                 'posts'          => PostController::class,
+                'roles'          => RoleController::class,
+                'permissions'    => PermissionController::class,
+
 
             ]);
 
@@ -118,12 +127,10 @@ Route::middleware('auth')->group(function () {
     Route::get('contact', [ContactController::class, 'index'])->name('contact.us');
     Route::post('/contact/message', [ContactController::class, 'store'])->name('contact.store');
 
-        Route::get('assign-permission-to-user', function(){
-            // check the user permission through role
-            $user = User::find(1);
 
-            $permissions = $user->getAllPermissions();
-
-        });
 
 require __DIR__.'/auth.php';
+
+Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {{
+
+}});
