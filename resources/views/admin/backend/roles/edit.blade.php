@@ -75,6 +75,8 @@
                                                         <div class="col">
                                                             <h4 class="card-title mb-0">Assign Permission To Role</h4>
                                                         </div><!--end col-->
+
+                                                        <!--Display the Permission and remove -->
                                                         <div class="mt-2 d-flex gap-2">
                                                             @if($role->permissions)
 
@@ -96,7 +98,7 @@
                                                     </div>
                                                 </div>
 
-                                                <form id="myForm" method="POST" action="{{ route('roles.attach', $role) }}" >
+                                                <form id="myForm" method="POST" action="{{ route('roles.attach', $role->id) }}" >
                                                     @csrf
                                                     <div class="card-body">
 
@@ -111,7 +113,7 @@
                                                                     @endforeach
 
                                                                 </select>
-                                                                @error('permission')
+                                                                @error('role')
                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                 @enderror
                                                             </div>
