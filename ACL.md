@@ -172,7 +172,10 @@
 
 # CREATE THE ROLES UI PAGE
         php artisan make:request StoreRoleRequest
+
 # CREATE THE PERMISSIONS  UI PAGE
         php artisan make:request StorePermissionRequest
 
+# UPDATE SPATIE ROLES AND PERMISSIONS
+    Load the edit page and add functionality for update both models
 

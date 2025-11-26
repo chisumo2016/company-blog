@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePermissionRequest;
+use App\Http\Requests\updatePermissionRequest;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 
@@ -57,17 +58,30 @@ class PermissionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Permission $permission)
     {
-        //
+        return view('admin.backend.permissions.edit', compact('permission'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update( updatePermissionRequest $request, Permission $permission)
     {
-        //
+        $validated = $request->validated();
+
+        $permission->update($validated);
+
+        $notification = [
+            'alert-type' => 'success',
+            'message' => 'Permission Update Successfully'
+
+        ];
+        return redirect()
+            ->route('permissions.index')
+            ->with($notification);
+
+
     }
 
     /**
