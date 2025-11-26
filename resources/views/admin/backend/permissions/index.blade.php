@@ -16,7 +16,9 @@
                     <div class="card">
 
                         <div class="card-header">
-                            <h5 class="card-title mb-0">All permissions</h5>
+                            <a
+                                href="{{ route('permissions.create') }}"
+                                class="btn btn-primary">Create Permission</a>
                         </div><!-- end card header -->
 
                         <div class="card-body">

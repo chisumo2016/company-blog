@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreRoleRequest;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
@@ -23,15 +24,24 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.backend.roles.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRoleRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        Role::create($validated);
+
+        $notification = [
+            'alert-type' => 'success',
+            'message' => 'Role Created Successfully'
+
+        ];
+        return redirect()->route('roles.index')->with($notification);
     }
 
     /**

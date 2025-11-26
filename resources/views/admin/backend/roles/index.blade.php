@@ -16,7 +16,9 @@
                 <div class="card">
 
                     <div class="card-header">
-                        <h5 class="card-title mb-0">All Roles</h5>
+                        <a
+                            href="{{ route('roles.create') }}"
+                            class="btn btn-primary">Create Role</a>
                     </div><!-- end card header -->
 
                     <div class="card-body">

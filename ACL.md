@@ -152,6 +152,7 @@
 
 # REAL PRACTICAL - SPATIE PACKAGE
     https://www.alpinetoolbox.com/
+    https://play.tailwindcss.com/
     - Create Admin User 
     Seed for role 
     Seed for user 
@@ -165,3 +166,13 @@
         https://github.com/tonyxhepa/laravel-permission
         php artisan make:controller Backend/RoleController -r
         php artisan make:controller Backend/PermissionController -r
+
+# DISPLAY THE ROLES IN INDEX PAGE UI
+# DISPLAY THE PERMISSIONS IN INDEX PAGE UI
+
+# CREATE THE ROLES UI PAGE
+        php artisan make:request StoreRoleRequest
+# CREATE THE PERMISSIONS  UI PAGE
+        php artisan make:request StorePermissionRequest
+
+
