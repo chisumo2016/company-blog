@@ -79,11 +79,15 @@ Route::middleware('auth')->group(function () {
 
 
             ]);
+                /****/
+            Route::post('/roles/{role}/attach-permissions',                 [RoleController::class, 'givePermission'])->name('roles.attach');
+            Route::delete('/roles/{role}/revoke-permissions/{permission}',  [RoleController::class, 'revokePermission'])->name('roles.permission.revoke');
 
-            Route::post('/roles/{role}/attach-permissions', [RoleController::class, 'givePermission'])->name('roles.attach');
-            Route::delete('/roles/{role}/attach-permissions/{permission}', [RoleController::class, 'revokePermission'])->name('roles.permission.revoke');
+            /****/
+            Route::post('/permissions/{permission}/attach-roles',           [PermissionController::class, 'assignRole'])->name('permission.attach');
+            Route::delete('/permissions/{permission}/roles/{role}',          [PermissionController::class, 'removeRole'])->name('permissions.roles.remove');
 
-            Route::get('get-slider' , [SliderController::class, 'getSlider'])->name('get.slider');
+            Route::get('get-slider' ,     [SliderController::class, 'getSlider'])->name('get.slider');
             Route::post('update-slider' , [SliderController::class, 'updateSlider'])->name('update.slider');
             Route::post('/edit-slider/{id}' , [SliderController::class, 'editSlider']);
 

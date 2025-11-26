@@ -7,6 +7,7 @@ use App\Http\Requests\StorePermissionRequest;
 use App\Http\Requests\updatePermissionRequest;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermissionController extends Controller
 {
@@ -60,7 +61,9 @@ class PermissionController extends Controller
      */
     public function edit(Permission $permission)
     {
-        return view('admin.backend.permissions.edit', compact('permission'));
+        $roles = Role::all();
+
+        return view('admin.backend.permissions.edit', compact('permission','roles'));
     }
 
     /**
@@ -97,5 +100,49 @@ class PermissionController extends Controller
 
         ];
         return redirect()->route('permissions.index')->with($notification);
+    }
+
+    public function assignRole(Request $request, Permission $permission)
+    {
+        if($permission->hasRole($request->role)){
+
+            $notification = [
+                'alert-type' => 'success',
+                'message' => 'Role Already exist'
+
+            ];
+            return redirect()->back()->with($notification);
+        }
+        //assign role
+        $permission->assignRole($request->role);
+
+            $notification = [
+                'alert-type' => 'success',
+                'message' => 'Roles assign Successfully'
+
+            ];
+            return redirect()->back()->with($notification);
+    }
+
+    public  function  removeRole(Permission $permission, Role $role)
+    {
+
+        if($permission->hasRole($role)){
+            $permission->removeRole($role);
+
+                $notification = [
+                    'alert-type' => 'success',
+                    'message' => 'Roles Removed Successfully'
+
+                ];
+            return redirect()->back()->with($notification);
+        }
+
+            $notification = [
+                'alert-type' => 'success',
+                'message' => 'Role not exists'
+
+        ];
+        return redirect()->back()->with($notification);
     }
 }
