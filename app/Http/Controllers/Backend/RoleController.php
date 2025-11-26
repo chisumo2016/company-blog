@@ -15,7 +15,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
+        $roles =  Role::whereNotIn('name', ['admin'])->get();
 
         return view('admin.backend.roles.index', compact('roles'));
     }
@@ -83,8 +83,16 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( Role $role)
     {
-        //
+        $role->delete();
+
+        $notification = [
+            'alert-type' => 'success',
+            'message' => 'Role Deleted Successfully'
+
+        ];
+        return redirect()->route('roles.index')->with($notification);
+
     }
 }

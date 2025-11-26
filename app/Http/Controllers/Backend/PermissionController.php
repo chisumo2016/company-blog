@@ -87,8 +87,15 @@ class PermissionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Permission $permission)
     {
-        //
+        $permission->delete();
+
+        $notification = [
+            'alert-type' => 'success',
+            'message' => 'Permission Deleted Successfully'
+
+        ];
+        return redirect()->route('permissions.index')->with($notification);
     }
 }

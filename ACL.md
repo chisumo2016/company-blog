@@ -178,4 +178,10 @@
 
 # UPDATE SPATIE ROLES AND PERMISSIONS
     Load the edit page and add functionality for update both models
+    I dont want to update the admin role , we need to hide it .
+            https://spatie.be/docs/laravel-permission/v6/basic-usage/basic-usage
+            $allRolesExceptAandB = Role::whereNotIn('name', ['role A', 'role B'])->get();
 
+        eg $roles =  Role::whereNotIn('name', ['admin'])->get();
+
+# DELETE ROLES AND PERMISSIONS 
