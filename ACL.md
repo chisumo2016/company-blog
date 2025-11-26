@@ -202,5 +202,10 @@
         PERMISSION MODEL
     Display all the roles which PERMISSION has and assign new ROLE
 
+# USER INDEX PAGE
+        User  MODEL
+    Display all users
+        :active=
+
     
 

@@ -294,13 +294,13 @@
             <div class="collapse" id="sidebarAdvancedUI">
                 <ul class="nav-second-level">
                     <li>
-                        <a href="#" class="tp-link">Users</a>
-                    </li>
-                    <li>
                         <a href="{{ route('roles.index') }}" class="tp-link">Roles</a>
                     </li>
                     <li>
                         <a href="{{ route('permissions.index') }}" class="tp-link">Permissions</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('users.index') }}" class="tp-link">Users</a>
                     </li>
                 </ul>
             </div>

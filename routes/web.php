@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\UsabilityController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Client\ContactController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\pages\AboutController;
@@ -76,6 +77,7 @@ Route::middleware('auth')->group(function () {
                 'posts'          => PostController::class,
                 'roles'          => RoleController::class,
                 'permissions'    => PermissionController::class,
+                'users'          => UserController::class,
 
 
             ]);
