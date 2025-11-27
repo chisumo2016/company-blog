@@ -28,7 +28,7 @@
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Excerpt</th>
-{{--                                <th>Description</th>--}}
+                                <th>Author</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -45,6 +45,7 @@
                                     <td>{{ Str::limit($post->title ,20 , '......') }}</td>
                                     <td>{{ $post->category->name }}</td>
                                     <td>{{ $post->excerpt }}</td>
+                                    <td>{{ $post->author->name }}</td>
 {{--                                    <td>{!!  Str::limit($post->description, 50 , '......' ) !!}</td>--}}
                                     <td>{{ $post->is_published ? 'Published' : 'Draft' }}</td>
                                     <td>

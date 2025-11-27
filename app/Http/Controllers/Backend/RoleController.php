@@ -60,6 +60,7 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         $permissions = Permission::all();
+
         return view('admin.backend.roles.edit', compact('role' , 'permissions'));
     }
 

@@ -16,7 +16,7 @@
                 <div class="card">
 
                     <div class="card-header">
-                        <h1>Users</h1>
+                        <h1>List of all users</h1>
                     </div><!-- end card header -->
 
                     <div class="card-body">

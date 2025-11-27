@@ -213,5 +213,43 @@
     add roles and permissions in one page
 
 
+
+
+# USE THE PACKAGE
+    https://www.youtube.com/watch?v=TzyxPVE_oJc
+        php artisan make:seeder RolesAndPermissionSeeder
+        php artisan db:seed --class=RolesAndPermissionSeeder
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 
