@@ -38,9 +38,10 @@
 
 
                                     <td class="d-flex align-items-center gap-2">
+                                        @can('edit-roles', $role)
                                         <a href="{{ route('roles.edit', $role->id) }}"
                                            class="btn btn-success btn-sm">Edit</a>
-
+                                        @endcan
                                         <form action="{{ route('roles.destroy', $role->id) }}"
                                               method="POST"
                                               class="delete-form"

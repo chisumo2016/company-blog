@@ -64,6 +64,7 @@ Route::post('/profile/store',  [ProfileControllerAlias::class, 'store'])->name('
 Route::post('/admin/password/store',  [ProfileControllerAlias::class, 'update'])->name('admin.password.update');
 });
 
+
 Route::middleware('auth')->group(function () {
             /* Group Controller with Resource*/
             Route::resources([

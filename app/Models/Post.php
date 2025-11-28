@@ -12,6 +12,7 @@ class Post extends Model
     /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
 
+
     /**
      * Mass assignable fields
      */
@@ -106,6 +107,19 @@ class Post extends Model
         return Str::limit(strip_tags($this->description), 180);
     }
 
+    function generateUniqueSlug($title)
+    {
+        $slug = Str::slug($title);
+        $original = $slug;
+        $counter = 1;
+
+        while (Post::where('slug', $slug)->exists()) {
+            $slug = $original . '-' . $counter;
+            $counter++;
+        }
+
+        return $slug;
+    }
 
 
 }

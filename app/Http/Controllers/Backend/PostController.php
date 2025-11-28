@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
@@ -59,7 +60,7 @@ class PostController extends Controller
                //$data['user_id'] = auth()->id();
 
             // ✅ Create testimonial using validated request data
-            Post::create([
+            $post = Post::create([
                 'category_id'  => $data['category_id'],
                 'user_id'      => auth()->id(),
                 'title'        => $data['title'],
@@ -71,6 +72,12 @@ class PostController extends Controller
                 'published_at' => $data['is_published'] ? now() : null,
 
             ]);
+
+            if ($post->author && $post->author->email) {
+                Mail::to($post->author->email)->send(
+                    new \App\Mail\PostPosted($post)
+                );
+            }
         }
 
         $notification = [
