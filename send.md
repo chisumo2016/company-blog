@@ -73,6 +73,9 @@
     Instant updates without reloading the page or losing application state .
 
 
+     <td>{{ $post->created_at ? $category->created_at->diffForHumans() : 'no date' }}</td>
+
+
 
 
 
