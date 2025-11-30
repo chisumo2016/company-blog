@@ -23,6 +23,7 @@ use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\pages\AboutController;
 use App\Http\Controllers\ProfileController;
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*Load the home page**/
@@ -37,6 +38,13 @@ Route::get('/dashboard', function () {
 //    return view('admin.index');
 //})->middleware(['auth', 'verified','role:admin'])->name('dashboard');
 
+Route::get('test' , function () {
+    $post = Post::first();
+
+   \App\Jobs\TranslatePost::dispatch($post);
+
+   return 'done';
+});
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

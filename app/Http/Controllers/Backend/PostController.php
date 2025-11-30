@@ -73,8 +73,9 @@ class PostController extends Controller
 
             ]);
 
+
             if ($post->author && $post->author->email) {
-                Mail::to($post->author->email)->send(
+                Mail::to($post->author->email)->queue(
                     new \App\Mail\PostPosted($post)
                 );
             }
