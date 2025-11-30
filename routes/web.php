@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ConnectController;
 use App\Http\Controllers\Backend\CoreController;
 use App\Http\Controllers\Backend\FeatureController;
 use App\Http\Controllers\Backend\FinanceController;
+use App\Http\Controllers\Backend\MediaController;
 use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\RoleController;
@@ -87,8 +88,7 @@ Route::middleware('auth')->group(function () {
                 'roles'          => RoleController::class,
                 'permissions'    => PermissionController::class,
                 'users'          => UserController::class,
-
-
+                'media'          => MediaController::class,
             ]);
                 /****/
             Route::post('/roles/{role}/attach-permissions',                 [RoleController::class, 'givePermission'])->name('roles.attach');
@@ -105,7 +105,7 @@ Route::middleware('auth')->group(function () {
             Route::delete('users/{user}/permission/{permission}',  [UserController::class, 'removePermission'])->name('users.permission.revoke');
 
 
-    Route::get('get-slider' ,     [SliderController::class, 'getSlider'])->name('get.slider');
+            Route::get('get-slider' ,     [SliderController::class, 'getSlider'])->name('get.slider');
             Route::post('update-slider' , [SliderController::class, 'updateSlider'])->name('update.slider');
             Route::post('/edit-slider/{id}' , [SliderController::class, 'editSlider']);
 
@@ -136,6 +136,8 @@ Route::middleware('auth')->group(function () {
 
          Route::get('/contact/message', [\App\Http\Controllers\Backend\ContactController::class, 'contact'])->name('contact.index');
          Route::delete('/contact/message/{id}', [\App\Http\Controllers\Backend\ContactController::class, 'destroy'])->name('contact.delete');
+
+
 
 });
 

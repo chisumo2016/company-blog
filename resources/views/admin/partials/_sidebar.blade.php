@@ -302,6 +302,13 @@
                     <li>
                         <a href="{{ route('users.index') }}" class="tp-link">Users</a>
                     </li>
+                    <li>
+                        <a href="{{ route('media.index') }}" class="tp-link">Image</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('media.create') }}" class="tp-link">Upload Image</a>
+                    </li>
                 </ul>
             </div>
         </li>
