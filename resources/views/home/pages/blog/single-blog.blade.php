@@ -64,15 +64,17 @@
 
                         <!-- Tags Section -->
                         <div class="lonyo-blog-d-content-wrap">
-                            <div class="lonyo-blog-widgets widgets2">
+                            <div class="lonyo-blog-widgets">
                                 <h4>Tags</h4>
                                 <div class="lonyo-blog-tags">
                                     <ul>
-                                        <li><a href="blog.html">Software</a></li>
-                                        <li><a href="blog.html">Business</a></li>
+                                        @foreach($post->tags as $tag)
+                                            <li><a href="single-blog.html">{{ $tag->name }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
+                            
                             <div class="tag-share-social">
                                 <h4>Share:</h4>
                                 <ul>
@@ -235,11 +237,9 @@
                             <h4>Tags</h4>
                             <div class="lonyo-blog-tags">
                                 <ul>
-                                    <li><a href="single-blog.html">Software</a></li>
-                                    <li><a href="single-blog.html">Business</a></li>
-                                    <li><a href="single-blog.html">App</a></li>
-                                    <li><a href="single-blog.html">Solutions</a></li>
-                                    <li><a href="single-blog.html">Finance</a></li>
+                                    @foreach($post->tags as $tag)
+                                        <li><a href="single-blog.html">{{ $tag->name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

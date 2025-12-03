@@ -17,7 +17,7 @@ class PostController extends Controller
 
         $app       = App::find(1);
 
-        $posts = Post::with('author')
+        $posts = Post::with(['author','tags'])
             ->published()
             ->orderBy('published_at', 'desc')
             ->paginate(10);
@@ -26,6 +26,7 @@ class PostController extends Controller
                 ->latest()
                 ->take(5)
                 ->get();
+
 
         return view('home.pages.blog.posts', compact('posts' , 'categories' ,'app', 'recentPosts'));
     }
