@@ -73,6 +73,17 @@
                                                     </div>
 
                                                     <div class="form-group mb-3 row">
+                                                        <div class="col-lg-12 col-xl-12">
+                                                            <label class="form-label">Select Tag</label>
+                                                            <select name="tags[]" class="form-control" multiple>
+                                                                @foreach($tags as $tag)
+                                                                    <option value="{{ $tag->id }}" @selected($post->tags->contains($tag->id))>{{ $tag->name }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group mb-3 row">
                                                         <label class="form-label">Excerpt</label>
                                                         <div class="col-lg-12 col-xl-12">
                                                             <textarea
@@ -128,6 +139,10 @@
                                                     </div>
 
                                                     <button type="submit" class="btn btn-primary">Save Changes</button>
+
+                                                    <a href="{{ $back ?? '#' }}" class="btn btn-secondary ms-2">
+                                                        Back to Post List
+                                                    </a>
                                                 </div><!--end card-body-->
                                             </form>
                                         </div>

@@ -245,7 +245,7 @@
                     <li>
                         <a href="#blog" data-bs-toggle="collapse">
                             <i data-feather="alert-octagon"></i>
-                            <span> Category Setup</span>
+                            <span> Category</span>
                             <span class="menu-arrow"></span>
                         </a>
 
@@ -262,7 +262,7 @@
                     <li>
                         <a href="#posts" data-bs-toggle="collapse">
                             <i data-feather="alert-octagon"></i>
-                            <span> Post Setup</span>
+                            <span> Post</span>
                             <span class="menu-arrow"></span>
                         </a>
 
@@ -279,6 +279,23 @@
                                 <li>
                                     <a href="{{ route('replies.index') }}" class="tp-link">All Comment Reply</a>
                                 </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#tags" data-bs-toggle="collapse">
+                            <i data-feather="alert-octagon"></i>
+                            <span> Tags</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <div class="collapse" id="tags">
+                            <ul class="nav-second-level">
+                                <a href="{{ route('tags.index') }}"
+                                   class="tp-link {{ request()->routeIs('tags.index') ? 'active' : '' }}">
+                                    View Tags
+                                </a>
                             </ul>
                         </div>
                     </li>

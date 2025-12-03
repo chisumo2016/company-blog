@@ -21,3 +21,7 @@
         
     @stack('stylesheets)
     @stack('scripts)
+
+        database/migrations/0001_01_01_000000_create_users_table.php
+        modified:   resources/views/home/index.blade.php
+        modified:   routes/web.php

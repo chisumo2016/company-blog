@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -33,7 +34,9 @@ class PostController extends Controller
     {
         $categories = Category::all();
 
-        return view('admin.backend.posts.create', compact('categories'));
+        $tags = Tag::all();
+
+        return view('admin.backend.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -41,6 +44,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+        //dd($request->tags);
         $data = $request->validated();
 
         //dd($data);
@@ -73,6 +77,12 @@ class PostController extends Controller
                 'published_at' => $data['is_published'] ? now() : null,
 
             ]);
+
+            /**check if we have the tags */
+           if ($request->has('tags')) {
+
+               $post->tags()->attach($request->tags);
+           }
 
 
             if ($post->author && $post->author->email) {
@@ -107,7 +117,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        return view('admin.backend.posts.edit', compact('post' , 'categories'));
+        $tags = Tag::all();
+        return view('admin.backend.posts.edit', compact('post' , 'categories', 'tags'));
     }
 
     /**
@@ -150,6 +161,9 @@ class PostController extends Controller
         /** Update Post */
         $post->update($data);
 
+        /** remove tags */
+        $post->tags()->sync($request->tags);
+
         /** Notification */
         $notification = [
             'alert-type' => 'success',
@@ -169,6 +183,9 @@ class PostController extends Controller
         if ($post->thumbnail && file_exists(public_path($post->thumbnail))) {
             unlink(public_path($post->thumbnail));
         }
+
+        /*Detach the post */
+        $post->tags()->detach();
 
         // Delete post from database
         $post->delete();

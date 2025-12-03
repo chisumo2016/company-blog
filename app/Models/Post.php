@@ -84,6 +84,11 @@ class Post extends Model
         return $this->hasMany(Comment::class)->where('is_active', 1);
     }
 
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
 
 
     /**

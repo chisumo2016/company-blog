@@ -17,7 +17,8 @@ use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\SliderController;
-use App\Http\Controllers\Backend\TeamController;
+
+use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\UsabilityController;
 use App\Http\Controllers\Backend\UserController;
@@ -25,7 +26,6 @@ use App\Http\Controllers\Client\ContactController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\pages\AboutController;
 use App\Http\Controllers\ProfileController;
-
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
@@ -79,20 +79,21 @@ Route::post('/admin/password/store',  [ProfileControllerAlias::class, 'update'])
 Route::middleware('auth')->group(function () {
             /* Group Controller with Resource*/
             Route::resources([
-                'testimonials'  => TestimonialController::class,
-                'features'      => FeatureController::class,
-                'connects'      => ConnectController::class,
-                'answers'       => AnswerController::class,
-                'teams'         => TeamController::class,
-                'cores'         => CoreController::class,
-                'categories'    => CategoryController::class,
-                'posts'          => PostController::class,
-                'roles'          => RoleController::class,
-                'permissions'    => PermissionController::class,
-                'users'          => UserController::class,
-                'media'          => MediaController::class,
-                'comments'       => CommentController::class,
-                'comment/replies' => CommentReplyController::class,
+                'testimonials'      => TestimonialController::class,
+                'features'          => FeatureController::class,
+                'connects'          => ConnectController::class,
+                'answers'           => AnswerController::class,
+                'teams'             => TeamController::class,
+                'cores'             => CoreController::class,
+                'categories'        => CategoryController::class,
+                'posts'             => PostController::class,
+                'roles'             => RoleController::class,
+                'permissions'       => PermissionController::class,
+                'users'              => UserController::class,
+                'media'             => MediaController::class,
+                'comments'          => CommentController::class,
+                'comment/replies'   => CommentReplyController::class,
+                'tags'              => TagController::class,
                 //'comment'          =>
             ]);
                 /****/
