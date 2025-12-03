@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\App;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class PostController extends Controller
         return view('home.pages.blog.posts', compact('posts' , 'categories' ,'app', 'recentPosts'));
     }
 
-    public function show($slug)
+    public function show($slug, Post $post)
     {
         $app       = App::find(1);
 
@@ -41,11 +42,21 @@ class PostController extends Controller
             ->get();
 
 
+
         $post = Post::published()->where('slug', $slug)->firstOrFail();
+
+        //$comments = Comment::all();
+        $comments = $post->comments()->whereIsActive(1)->get();
+
+
+
+
+        //d($comments);
 
         //dd($post);
 
-       return view('home.pages.blog.single-blog', compact(  'app','categories' , 'post', 'recentPosts'));
+       return view('home.pages.blog.single-blog', compact(  'app','categories' , 'post', 'recentPosts','comments'
+       ));
     }
 
     public function blogCategory($id)

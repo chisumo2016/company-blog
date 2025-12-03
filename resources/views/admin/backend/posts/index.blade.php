@@ -19,6 +19,7 @@
                         <h5 class="card-title mb-0">All Categories </h5>
                     </div><!-- end card header -->
 
+
                     <div class="card-body">
                         <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
                             <thead>
@@ -29,6 +30,7 @@
                                 <th>Category</th>
                                 <th>Excerpt</th>
                                 <th>Author</th>
+                                <th>Comments</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -43,11 +45,16 @@
                                             style="width: 70px; height: 40px;" alt="">
                                     </td>
                                     <td>{{ Str::limit($post->title ,20 , '......') }}</td>
-                                    <td>{{ $post->category->name }}</td>
+                                    <td>{{ $post->category ? $post->category->name  : 'uncategorized'}}</td>
                                     <td>{{ $post->excerpt }}</td>
                                     <td>{{ $post->author->name }}</td>
+                                    <td><a href="{{ route('blog.post', $post->id) }}">View Post</a></td>
+                                    <td>
+                                        <a href="{{route('comments.show', $post->id) }}">View Comments</a>
+                                    </td>
 {{--                                    <td>{!!  Str::limit($post->description, 50 , '......' ) !!}</td>--}}
                                     <td>{{ $post->is_published ? 'Published' : 'Draft' }}</td>
+
                                     <td>
                                         <a href="{{ route('posts.edit', $post) }}" class="btn btn-sm btn-warning">Edit</a>
 

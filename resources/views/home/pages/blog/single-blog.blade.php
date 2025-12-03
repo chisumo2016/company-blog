@@ -58,7 +58,7 @@
 
                             <blockquote data-aos="fade-up" data-aos-duration="700">
                                 <h4>"{{ $post->title }}”</h4>
-                                <h4 class="mt-10">– Daymond John</h4>
+                                <h4 class="mt-10">– {{ $post->author->name }}</h4>
                             </blockquote>
                         </div>
 
@@ -109,69 +109,73 @@
                                 </ul>
                             </div>
                         </div>
-                        {{-- Comments Sections--}}
+
+                        <!-- Comments Sections -->
                         <div class="lonyo-blog-d-comment-box">
                             <h4>Comments:</h4>
-                            <div class="lonyo-blog-d-comment-wrap1">
-                                <div class="lonyo-blog-d-comment-thumb">
-                                    <img src="assets/images/blog/b8.png" alt="">
-                                </div>
-                                <div class="lonyo-blog-d-comment-data1">
-                                    <h5>Vicky Smith</h5>
-                                    <span>June 21, 2025</span>
-                                    <p>After reading the blog, I understand personal finance is exigent. Personal finance isn't just a way to track your spending.</p>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="single-blog.html">Reply</a>
-                                </div>
-                            </div>
-                            <div class="lonyo-blog-d-comment-wrap pl-101">
-                                <div class="lonyo-blog-d-comment-thumb">
-                                    <img src="assets/images/blog/b9.png" alt="">
-                                </div>
-                                <div class="lonyo-blog-d-comment-data">
-                                    <h5>Adam Mac</h5>
-                                    <span>September 22, 2025</span>
-                                    <p>It's a tool to secure financial future, helping consumers track spending, pay bills, budgets and create savings.</p>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="single-blog.html">Reply</a>
-                                </div>
-                            </div>
-                            <div class="lonyo-blog-d-comment-wrap1 wrap2">
-                                <div class="lonyo-blog-d-comment-thumb">
-                                    <img src="assets/images/blog/b10.png" alt="">
-                                </div>
-                                <div class="lonyo-blog-d-comment-data1">
-                                    <h5>William Thomas</h5>
-                                    <span>June 21, 2025</span>
-                                    <p>Yes exactly! Personal finance software gives a clear picture of your situation by effortlessly organizing & tracking expenses.</p>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="single-blog.html">Reply</a>
-                                </div>
-                            </div>
+
+                            @if(count($comments) > 0)
+
+                                @foreach($comments as $comment)
+
+                                    <div class="lonyo-blog-d-comment-wrap1">
+                                        <div class="lonyo-blog-d-comment-thumb">
+                                            <img src="{{ $comment->photo }}" alt="" height="64">
+                                        </div>
+
+                                        <div class="lonyo-blog-d-comment-data1">
+                                            <h5>{{ $comment->author }}</h5>
+                                            <span>{{ $comment->created_at->diffForHumans() }}</span>
+                                            <p>{{ $comment->body }}</p>
+
+                                            <!-- Reply box BELOW the comment -->
+                                            @if(count($comment->replies) > 0)
+
+                                                @foreach($comment->replies as $reply)
+                                                    <ul>
+                                                        <li>{{ $reply->author }}</li>
+                                                        <li>{{ $reply->created_at->diffForHumans() }}</li>
+                                                    </ul>
+                                                        <p>{{ $reply->body }}</p>
+
+                                                    <div class="reply-btn" style="margin-top:15px;">
+                                                        <form action="{{ route('comment.reply') }}" method="POST">
+                                                            <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+                                                            @csrf
+                                                            <label>Reply</label>
+                                                            <textarea name="body" cols="30" rows="3" class="form-control"></textarea>
+
+                                                            <button type="submit" class="btn btn-primary" style="margin-top:10px;">
+                                                                Submit Reply
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            @endif
                         </div>
-                        <div class="lonyo-blog-d-comment-box2" data-aos="fade-up" data-aos-duration="700">
-                            <h4>Leave a comments:</h4>
-                            <div class="lonyo-contact-box">
-                                <form action="#">
-                                    <div class="lonyo-main-field">
-                                        <p>Full name*</p>
-                                        <input type="text" placeholder="Enter your name">
-                                    </div>
-                                    <div class="lonyo-main-field">
-                                        <p>Email address*</p>
-                                        <input type="email" placeholder="Your email address">
-                                    </div>
-                                    <p>Message</p>
-                                    <div class="lonyo-main-field-textarea">
-                                        <textarea class="button-text" name="textarea" placeholder="Write your message here..."></textarea>
-                                    </div>
-                                    <button class="lonyo-default-btn extra-btn d-block" type="button">Submit A Comment</button>
-                                </form>
+                        @if(Auth::check())
+                            <div class="lonyo-blog-d-comment-box2 mt-4" data-aos="fade-up" data-aos-duration="700">
+                                <h4>Leave a comments:</h4>
+                                <div class="lonyo-contact-box">
+
+                                    <form action="{{ route('comments.store') }}" method="POST">
+                                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                        @csrf
+                                        <p>Message</p>
+                                        <div class="lonyo-main-field-textarea">
+                                            <textarea class="button-text" name="body" placeholder="Write your message here..."></textarea>
+                                        </div>
+                                        <button class="lonyo-default-btn extra-btn d-block" type="submit">Submit A Comment</button>
+                                    </form>
+
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-4">

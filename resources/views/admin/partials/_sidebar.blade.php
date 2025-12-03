@@ -269,11 +269,20 @@
                         <div class="collapse" id="posts">
                             <ul class="nav-second-level">
                                 <li>
-                                    <a href="{{ route('posts.index') }}" class="tp-link">View Posts</a>
+                                    <a href="{{ route('posts.index') }}" class="tp-link">All Posts</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('comments.index') }}" class="tp-link">All Comments</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('replies.index') }}" class="tp-link">All Comment Reply</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
+
                 </ul>
             </div>
         </li>

@@ -15,15 +15,18 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
 
             /*New fields*/
             $table->string('photo')->nullable();
             $table->string('phone')->nullable();
+            $table->text('username')->nullable();
             $table->text('address')->nullable();
+            $table->text('bio')->nullable();
 
-            $table->string('status')->default('1');
+            $table->string('status')->default('1'); //pending
             $table->string('role')->default('user');
 
             $table->rememberToken();

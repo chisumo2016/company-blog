@@ -6,6 +6,8 @@ use App\Http\Controllers\Backend\AnswerController;
 use App\Http\Controllers\Backend\AppController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ClarifyController;
+use App\Http\Controllers\Backend\CommentController;
+use App\Http\Controllers\Backend\CommentReplyController;
 use App\Http\Controllers\Backend\ConnectController;
 use App\Http\Controllers\Backend\CoreController;
 use App\Http\Controllers\Backend\FeatureController;
@@ -89,6 +91,9 @@ Route::middleware('auth')->group(function () {
                 'permissions'    => PermissionController::class,
                 'users'          => UserController::class,
                 'media'          => MediaController::class,
+                'comments'       => CommentController::class,
+                'comment/replies' => CommentReplyController::class,
+                //'comment'          =>
             ]);
                 /****/
             Route::post('/roles/{role}/attach-permissions',                 [RoleController::class, 'givePermission'])->name('roles.attach');
@@ -136,6 +141,8 @@ Route::middleware('auth')->group(function () {
 
          Route::get('/contact/message', [\App\Http\Controllers\Backend\ContactController::class, 'contact'])->name('contact.index');
          Route::delete('/contact/message/{id}', [\App\Http\Controllers\Backend\ContactController::class, 'destroy'])->name('contact.delete');
+
+        Route::post('comment/reply', [\App\Http\Controllers\Backend\CommentReplyController::class, 'replyComment'])->name('comment.reply');
 
 
 
