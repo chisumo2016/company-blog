@@ -161,10 +161,14 @@ Route::middleware('auth')->group(function () {
     Route::get('contact', [ContactController::class, 'index'])->name('contact.us');
     Route::post('/contact/message', [ContactController::class, 'store'])->name('contact.store');
 
+/**admin route*/
 
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::middleware(['guest:admin'])->group(function () {
+
+    });
+});
 
 require __DIR__.'/auth.php';
 
-Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {{
 
-}});

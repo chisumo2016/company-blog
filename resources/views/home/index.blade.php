@@ -1,5 +1,6 @@
 @extends('home.master')
 
+
 @section('client')
 
     <!--  hero -->

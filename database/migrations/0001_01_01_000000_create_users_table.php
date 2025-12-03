@@ -22,9 +22,8 @@ return new class extends Migration
             /*New fields*/
             $table->string('photo')->nullable();
             $table->string('phone')->nullable();
-            $table->text('username')->nullable();
             $table->text('address')->nullable();
-            $table->text('bio')->nullable();
+
 
             $table->string('status')->default('1'); //pending
             $table->string('role')->default('user');
